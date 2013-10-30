@@ -76,9 +76,8 @@ def call_weather_api(location):
         print('Error: Location %s not found.' % location)
 
 
-if len(sys.argv) < 2:
-    sys.exit("You must give a city")
-
-city = sys.argv[1]
+city = 'Beijing'
+if len(sys.argv) > 1:
+    city = sys.argv[1]
 
 call_weather_api(city)
