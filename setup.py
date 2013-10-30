@@ -24,7 +24,7 @@ setup(name = "sevabot",
     author = "Mikko Ohtamaa",
     author_email = "mikko@opensourcehacker.com",
     url = "https://github.com/opensourcehacker/sevabot",
-    install_requires = ["Flask", "Skype4Py", "plac"],
+    install_requires = ["Flask", "Skype4Py", "plac", "requests"],
     packages = ['sevabot'],
     classifiers=[
         "Programming Language :: Python",
