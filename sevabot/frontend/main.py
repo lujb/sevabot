@@ -21,6 +21,8 @@ import plac
 from sevabot.frontend import api
 from sevabot.frontend.daemon import create_daemon
 
+import bbsbot
+
 logger = logging.getLogger("sevabot")
 
 server = Flask(__name__)
@@ -115,6 +117,10 @@ def main(settings="settings.py", verbose=False, daemon=False):
     modules.load_modules(sevabot)
 
     api.configure(sevabot, settings, server)
+
+    bbsbot.init_db()
+    bbot = bbsbot.Bot(sevabot.getSkype())
+    bbot.start()
 
     server.run(settings.HTTP_HOST, settings.HTTP_PORT, debug=False)
 
